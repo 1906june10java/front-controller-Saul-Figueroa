@@ -1,0 +1,22 @@
+2019-06-28 10:59:11 TRACE ConnectionUtil:37 - Connection successfully
+2019-06-28 10:59:30 TRACE ConnectionUtil:37 - Connection successfully
+2019-06-28 11:26:46 WARN  CustomerRepositoryJdbc:55 - Exception creating a new customer
+java.sql.SQLIntegrityConstraintViolationException: ORA-00001: unique constraint (LOGIN_TEST_DB.UNQ_USERNAME) violated
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:450)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:399)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1017)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:655)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:249)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:566)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:215)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:58)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:943)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1075)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3820)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:3897)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:1361)
+	at com.revature.repository.CustomerRepositoryJdbc.insert(CustomerRepositoryJdbc.java:51)
+	at com.revature.repository.CustomerRepositoryJdbc.main(CustomerRepositoryJdbc.java:161)
+2019-06-28 12:43:55 INFO  CustomerRepositoryJdbc:164 - [Customer [firstName=andres, lastName=gomez, username=agomez, password=FA4CE084DAFCB74794D32AD6E5ADCDE0], Customer [firstName=andres, lastName=gomez, username=agomez123, password=952267024066D542DF80F97696523828], Customer [firstName=Peter, lastName=Alagna, username=peter343, password=5C9D3E7E7E3EB0EDCE6825E04B0AFF18], Customer [firstName=PETER, lastName=ALAGNA, username=petronilo1234, password=F5A9277934D4D1512F3A2EDCD5EC5C09], Customer [firstName=PETER, lastName=ALAGNA, username=petronilo, password=720A8B2FF2633A77697A2E45B1C7D480], Customer [firstName=TEST, lastName=NUMBER2, username=test2, password=083F90F1B3D42F65FE7C0B3D27C5C7C1], Customer [firstName=nicole, lastName=perse, username=nperse, password=08E9F051C66071E0B4CBF12D20DB3828], Customer [firstName=ROB, lastName=BOB, username=bobbert, password=430D22B39B8F5E434288B987AABB7348], Customer [firstName=PETER, lastName=ALAGNA, username=PETRONILO, password=F765E2B987E1807FA71BFDD70C6CAED5], Customer [firstName=KYLO, lastName=REN, username=KYLO, password=25FA2A549234141F8431BA6B0845F8E1], Customer [firstName=SAUL, lastName=FIGUEROA, username=sauleff, password=6E0B4002BB3EDF90BA3521886DC7D724]]
+2019-06-28 12:46:49 INFO  CustomerRepositoryJdbc:164 - Customer [firstName=, lastName=, username=, password=]

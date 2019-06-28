@@ -16,7 +16,7 @@ import com.revature.util.ConnectionUtil;
 /* JDBC implementation for DAO contract for Customers data access */
 public class CustomerRepositoryJdbc implements CustomerRepository {
 	
-	private static Logger logger = Logger.getLogger(CustomerRepositoryJdbc.class);
+	private static Logger lOGGER = Logger.getLogger(CustomerRepositoryJdbc.class);
 	
 	/*Singleton transformation of JDBC implementation object */
 	private static CustomerRepositoryJdbc customerDaoJdbc;
@@ -52,7 +52,7 @@ public class CustomerRepositoryJdbc implements CustomerRepository {
 				return true;
 			}
 		} catch (SQLException e) {
-			logger.warn("Exception creating a new customer", e);
+			lOGGER.warn("Exception creating a new customer", e);
 		}
 		return false;
 	}
@@ -79,7 +79,7 @@ public class CustomerRepositoryJdbc implements CustomerRepository {
 				return true;
 			}
 		} catch (SQLException e) {
-			logger.warn("Exception creating a new customer with stored procedure", e);
+			lOGGER.warn("Exception creating a new customer with stored procedure", e);
 		}
 		return false;
 	}
@@ -104,7 +104,7 @@ public class CustomerRepositoryJdbc implements CustomerRepository {
 						);
 			}
 		} catch (SQLException e) {
-			logger.warn("Exception selecting a customer", e);
+			lOGGER.warn("Exception selecting a customer", e);
 		}
 		return new Customer();
 	}
@@ -129,7 +129,7 @@ public class CustomerRepositoryJdbc implements CustomerRepository {
 
 			return customerList;
 		} catch (SQLException e) {
-			logger.warn("Exception selecting all customers", e);
+			lOGGER.warn("Exception selecting all customers", e);
 		} 
 		return new ArrayList<>();
 	}
@@ -149,10 +149,21 @@ public class CustomerRepositoryJdbc implements CustomerRepository {
 				return result.getString("HASH");
 			}
 		} catch (SQLException e) {
-			logger.warn("Exception getting customer hash", e);
+			lOGGER.warn("Exception getting customer hash", e);
 		} 
 		return new String();
 	}
 	
+	public static void main(String[] args) {
+		
+		CustomerRepositoryJdbc repository = new CustomerRepositoryJdbc();
+		
+		
+		//repository.insert(new Customer(1,"Saul","Figueroa","SAULEFF","1234"));
+		
+		lOGGER.info(repository.select(new Customer()));
+	
+		
+	}
 	
 }
